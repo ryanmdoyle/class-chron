@@ -1,10 +1,9 @@
 <script lang="ts">
-	// import endGong from '/endGong.m4a';
 	import soundIcon from '$lib/icons/sound.png';
 	import noSoundIcon from '$lib/icons/noSound.png';
-	import highBell from '$lib/sounds/highBell.mp3';
+	// import highBell from '$lib/sounds/highBell.mp3';
 	let audio: HTMLAudioElement;
-	let total = 180;
+	let total = 3;
 	let timer: number;
 	let running = false;
 	let isSound = false;
@@ -36,11 +35,12 @@
 		if (!running && total > 0) {
 			running = true;
 			timer = setInterval(() => {
-				if (total == 0) {
-					clearInterval(timer);
+				console.log(total);
+				if (total == 1) {
 					if (isSound) {
 						audio.play();
 					}
+					total = total - 1;
 					stopTimer();
 				} else {
 					total = total - 1;
@@ -80,6 +80,8 @@
 	function toggleSound(): void {
 		isSound = !isSound;
 	}
+
+	function changeAudio(): void {}
 </script>
 
 <div class="window-container">
@@ -105,8 +107,7 @@
 			<button class="roboto-mono-400" on:click={() => setTotal(20)}>20</button>
 		</div>
 	</div>
-	<!-- <audio src="https://class-chron.s3.us-west-1.amazonaws.com/endGong.m4a" bind:this={audio}></audio> -->
-	<audio src={highBell} bind:this={audio}></audio>
+	<audio src="https://class-chron.s3.us-west-1.amazonaws.com/bell.mp3" bind:this={audio}></audio>
 	<div class="sound-controls">
 		{#if isSound}
 			<button on:click={toggleSound}>
@@ -122,7 +123,7 @@
 
 <style>
 	h1 {
-		margin-bottom: 1ch;
+		margin: 0 auto;
 	}
 	.window-container {
 		display: flex;
