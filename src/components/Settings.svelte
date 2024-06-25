@@ -1,7 +1,6 @@
 <script lang="js">
 	import { getContext } from 'svelte';
 	import settingsIcon from '$lib/icons/settings.png';
-	import cancelIcon from '$lib/icons/cancel.png';
 
 	const toggle = getContext('toggleSettings');
 </script>

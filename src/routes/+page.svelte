@@ -76,7 +76,7 @@
 		style:background={`linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`}
 		in:fade={{ duration: 500 }}
 	>
-		<Timer isSound />
+		<Timer {isSound} />
 		{#if isSettings}
 			<div id="primary-color">
 				<input

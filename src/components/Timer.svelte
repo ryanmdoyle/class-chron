@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let isSound = false;
+	export let isSound: boolean;
 
 	let audio: HTMLAudioElement;
 	let total = 180;
