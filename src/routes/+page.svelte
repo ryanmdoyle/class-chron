@@ -4,6 +4,7 @@
 
 	import Timer from '../components/Timer.svelte';
 	import Settings from '../components/Settings.svelte';
+	import BuyACoffee from '../components/BuyACoffee.svelte';
 
 	import soundIcon from '$lib/icons/sound.png';
 	import noSoundIcon from '$lib/icons/noSound.png';
@@ -103,8 +104,10 @@
 				/>
 				<label for="secoldary-color"></label>
 			</div>
+			<BuyACoffee />
 		{/if}
 		<div class="sound-controls">
+			<Settings />
 			{#if isSound}
 				<button on:click={toggleSound}>
 					<img class="sound-icon" src={soundIcon} alt="sound" />
@@ -115,8 +118,6 @@
 				</button>
 			{/if}
 		</div>
-
-		<Settings />
 	</div>
 {/if}
 

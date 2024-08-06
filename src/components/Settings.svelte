@@ -6,7 +6,7 @@
 </script>
 
 <button
-	class="settings-control"
+	class="settings-button"
 	on:click={() => {
 		toggle();
 	}}
@@ -20,16 +20,8 @@
 		height: 25px;
 	}
 
-	.settings-control {
-		position: absolute;
-		opacity: 0.2;
-		top: 1rem;
-		right: 1rem;
+	.settings-button {
 		background: none;
 		border: none;
-	}
-
-	.settings-control:hover {
-		opacity: 0.5;
 	}
 </style>
