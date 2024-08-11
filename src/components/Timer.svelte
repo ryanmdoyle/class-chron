@@ -62,14 +62,19 @@
 		clearInterval(timer);
 	}
 
-	function addMin(): void {
+	function addTime(): void {
 		total += 60;
 	}
 
-	function subMin(timer: number): void {
-		if (total - 60 >= 0) {
+	function subTime(timer: number): void {
+		// if the timer is greater than 1 minute remaining (in seconds)
+		if (total - 60 >= 1) {
 			total -= 60;
+		} else if (total - 10 > 0) {
+			// If total is less than 60 but more than 10, subtract 10 seconds
+			total -= 10;
 		} else {
+			// if the timer is already less than 10 seconds, just clear it
 			clearTimer(timer);
 		}
 	}
@@ -86,8 +91,8 @@
 			<button class="roboto-mono-400" on:click={() => startTimer()}>Start</button>
 		{/if}
 		<button class="roboto-mono-400" on:click={() => clearTimer(timer)}>Clear</button>
-		<button class="roboto-mono-400" on:click={() => subMin(timer)}>-</button>
-		<button class="roboto-mono-400" on:click={() => addMin()}>+</button>
+		<button class="roboto-mono-400" on:click={() => subTime(timer)}>-</button>
+		<button class="roboto-mono-400" on:click={() => addTime()}>+</button>
 		<button class="roboto-mono-400" on:click={() => setTotal(1)}>1</button>
 		<button class="roboto-mono-400" on:click={() => setTotal(2)}>2</button>
 		<button class="roboto-mono-400" on:click={() => setTotal(3)}>3</button>
