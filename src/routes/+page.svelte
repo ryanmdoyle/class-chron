@@ -18,6 +18,9 @@
 	setContext('toggleSettings', toggleSettings);
 
 	onMount(() => {
+		if (localStorage.getItem('isSound') == 'true') {
+			isSound = true;
+		}
 		//check if there is a color saved to localstorage
 		const localPrimary = localStorage.getItem('primaryColor');
 		const localSecondary = localStorage.getItem('secondaryColor');
@@ -44,6 +47,7 @@
 
 	function toggleSound(): void {
 		isSound = !isSound;
+		localStorage.setItem('isSound', isSound.toString());
 	}
 
 	function setPrimary(
